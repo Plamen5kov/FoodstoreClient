@@ -3,7 +3,6 @@
 foodstoreApp.controller('GetProductsByCategoryId',
     function GetProductsByCategoryId($scope, foodstoreData) {
 
-        $scope.tralala = 'tralalaalsdlasd'
         $scope.someFunc = function () { };
         $scope.products = null;
 
@@ -11,12 +10,12 @@ foodstoreApp.controller('GetProductsByCategoryId',
             foodstoreData.getProductsByCategory(category)
                 .then(function (data) {
                     console.log(data);
-                    //$scope.products = data;
-                    setTimeout(loadLater(data), 3000);
-                })
-            .then(function () {
-                window.location = '#/get-products-by-categoryId';
-            })
+                    $scope.products = data;
+                    //setTimeout(loadLater(data), 3000);
+                });
+            //.then(function () {
+            //    window.location = '#/get-products-by-categoryId';
+            //})
         }
 
         function loadLater(data){
