@@ -4,3 +4,9 @@ C:\Users\user\Desktop\FoodClient\FoodStore.Client\bin\FoodStore.Client.pdb
 C:\Users\user\Desktop\FoodClient\FoodStore.Client\obj\Debug\FoodStore.Client.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\FoodClient\FoodStore.Client\obj\Debug\FoodStore.Client.dll
 C:\Users\user\Desktop\FoodClient\FoodStore.Client\obj\Debug\FoodStore.Client.pdb
+D:\Telerik\Repos\FoodstoreClient\FoodStore.Client\bin\FoodStore.Client.dll.config
+D:\Telerik\Repos\FoodstoreClient\FoodStore.Client\bin\FoodStore.Client.dll
+D:\Telerik\Repos\FoodstoreClient\FoodStore.Client\bin\FoodStore.Client.pdb
+D:\Telerik\Repos\FoodstoreClient\FoodStore.Client\obj\Debug\FoodStore.Client.csprojResolveAssemblyReference.cache
+D:\Telerik\Repos\FoodstoreClient\FoodStore.Client\obj\Debug\FoodStore.Client.dll
+D:\Telerik\Repos\FoodstoreClient\FoodStore.Client\obj\Debug\FoodStore.Client.pdb

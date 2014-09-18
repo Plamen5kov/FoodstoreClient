@@ -4,19 +4,22 @@
             <div class="col-md-6 big-text">
                 <strong>All Categories</strong>
             </div>
-            <div class="col-md-6">
-                <a href="#/all-artists" class="btn btn-default pull-right">See all</a>
-            </div>
         </div>
         <div class="row" >
-            <div class="col-md-4 text-left jumbotron">
+            <div class="col-md-8 text-left jumbotron">
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="category in categories">
-                        <strong>{{category.Id}}&nbsp;</strong>
 
+                    <li class="list-group-item" ng-repeat="category in categories">
                         <div ng-controller="GetProductsByCategoryId">
-                            <!--href="#/get-products-by-categoryId"-->
-                            <a ng-click="getProductsBy(category.Id)">{{category.Name}}</a>
+                            <a ng-click="getProductsBy(category.Id); showMoreInfo(click);" ng-model="click">{{category.Name}}</a>
+                            <ul class="list-group" > 
+                                <li class="list-group-item" ng-repeat="product in products" ng-hide="hide">
+                                    <span>Name: </span>
+                                    <p>{{product.Name}}</p>
+                                    <span>Price: </span>
+                                    <strong>{{product.Price}}</strong>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                 </ul>
