@@ -25,18 +25,17 @@ foodstoreApp.factory('foodstoreData', function ($http, $q) {
 
         $http.post(
             baseUrl + 'Token',
-            body,
-                {
-                    transformRequest: function (body) {
-                        var str = [];
-                        for (var p in body)
-                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(body[p]));
-                        return str.join("&");
-                    },
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
+            body, {
+                transformRequest: function (body) {
+                    var str = [];
+                    for (var p in body)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(body[p]));
+                    return str.join("&");
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
+            }
             )
             .success(function (data) {
                 deferred.resolve(data);
@@ -54,28 +53,64 @@ foodstoreApp.factory('foodstoreData', function ($http, $q) {
     function register(registerData) {
         var deferred = $q.defer();
 
-        console.log(registerData);
         var body = {
             'Email': registerData.email,
             Password: registerData.password,
             ConfirmPassword: registerData.confirmPassword
         };
 
-        $http({
-            method: 'POST',
-            url: baseUrl + 'api/Account/Register',
-            data: body
-        })
-            .success(function (data, status, headers, config) {
+        $http.post(
+            baseUrl + 'api/Account/Register',
+            body, {
+                transformRequest: function (body) {
+                    var str = [];
+                    for (var p in body)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(body[p]));
+                    return str.join("&");
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }
+            )
+            .success(function (data) {
                 deferred.resolve(data);
             })
             .error(function (data, status, headers, config) {
-                console.log('register error');
+                console.log('-------register error');
+                console.log('data: ' + data);
+                console.log('status: ' + status);
                 deferred.reject();
             });
 
         return deferred.promise;
     }
+
+    //function register(registerData) {
+    //    var deferred = $q.defer();
+
+    //    console.log(registerData);
+    //    var body = {
+    //        'Email': registerData.email,
+    //        Password: registerData.password,
+    //        ConfirmPassword: registerData.confirmPassword
+    //    };
+
+    //    $http({
+    //        method: 'POST',
+    //        url: baseUrl + 'api/Account/Register',
+    //        data: body
+    //    })
+    //        .success(function (data, status, headers, config) {
+    //            deferred.resolve(data);
+    //        })
+    //        .error(function (data, status, headers, config) {
+    //            console.log('register error');
+    //            deferred.reject();
+    //        });
+
+    //    return deferred.promise;
+    //}
 
     function getCategories() {
         var deferred = $q.defer();
@@ -85,9 +120,9 @@ foodstoreApp.factory('foodstoreData', function ($http, $q) {
         console.log(header);
 
         $http({
-            method: "GET",
-            url: baseUrl + 'api/Categories/GetCategories'
-        })
+                  method: "GET",
+                  url: baseUrl + 'api/Categories/GetCategories'
+              })
             .success(function (data, status, headers, config) {
                 deferred.resolve(data);
             })
