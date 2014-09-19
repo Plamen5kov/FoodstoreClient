@@ -9,6 +9,9 @@ foodstoreApp.controller('RegisterController',
             .then(function (data) {
                 console.log('registration successful');
             })
+            .then(function () {
+                window.location = '#/login-form';
+            })
         }
     }
 );

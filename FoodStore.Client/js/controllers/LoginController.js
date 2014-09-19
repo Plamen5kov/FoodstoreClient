@@ -8,5 +8,8 @@ foodstoreApp.controller('LoginController',
             .then(function (data) {
                 localStorage.setItem('Bearer', data.access_token);
             })
+            .then(function () {
+                window.location = '#/get-categories';
+            })
         }
 });
