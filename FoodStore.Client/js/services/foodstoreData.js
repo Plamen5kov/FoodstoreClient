@@ -61,21 +61,11 @@ foodstoreApp.factory('foodstoreData', function ($http, $q) {
             ConfirmPassword: registerData.confirmPassword
         };
 
-        $http.post(
-             baseUrl + 'api/Account/Register',
-             body,
-                 {
-                     transformRequest: function (body) {
-                         var str = [];
-                         for (var p in body)
-                             str.push(encodeURIComponent(p) + "=" + encodeURIComponent(body[p]));
-                         return str.join("&");
-                     },
-                     headers: {
-                         'Content-Type': 'application/x-www-form-urlencoded'
-                     }
-                 }
-             )
+        $http({
+            method: 'POST',
+            url: baseUrl + 'api/Account/Register',
+            data: body
+        })
             .success(function (data, status, headers, config) {
                 deferred.resolve(data);
             })
